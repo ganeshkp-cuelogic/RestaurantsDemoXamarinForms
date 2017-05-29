@@ -25,5 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)RestaurantsListPage.xaml.cs">
       <DependentUpon>RestaurantsListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RestruantModel.cs" />
   </ItemGroup>
 </Project>

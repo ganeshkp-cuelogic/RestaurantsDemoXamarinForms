@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="test.RestaurantsListPage">
-	<ContentPage.Content>
-		<StackLayout BackgroundColor="#3498FF">
-
-
-			<StackLayout 
-				HorizontalOptions="FillAndExpand"
-				VerticalOptions="FillAndExpand">
-				
-					<SearchBar 
-						x:Name="RestaurantsSearchField"
-						Placeholder="Enter text"
-						SearchButtonPressed="onSearchButtonClicked"
-					>
-					</SearchBar>
-
-                <ListView x:Name="SearchResultsListView" ItemSelected="OnItemSelected" IsGroupingEnabled="true">
-                    
-                </ListView>
-
-			</StackLayout>
-				
-		</StackLayout>
-
-	</ContentPage.Content>
+	<StackLayout>
+		<SearchBar x:Name="SearchBarRestaurants" Placeholder="Enter Text" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0,2,0,0" SearchButtonPressed="Handle_SearchButtonPressed">
+		</SearchBar>
+		<ListView x:Name="listView" RowHeight="100">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+							<Image x:Name="imgViewRstaurants" Aspect="AspectFill" Source="{Binding restaurant.thumb}" HeightRequest="70" WidthRequest="70" Margin="20,0,0,0" BackgroundColor="Silver">
+							</Image>
+							<StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Margin="20,0,20,0">
+								<Label Text="{Binding restaurant.name}" TextColor="#f35e20" FontSize="14" />
+								<Label Text="{Binding restaurant.address}" FontSize="12" HorizontalOptions="EndAndExpand" TextColor="#503026" />
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
 </ContentPage>
